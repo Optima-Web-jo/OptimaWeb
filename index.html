@@ -209,7 +209,7 @@
                     <a href="#services" class="nav-link text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">What is Optima</a>
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
-                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-primary focus:outline-none">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-primary focus:outline-none transform transition-transform duration-300">
                         <span class="sr-only">Open main menu</span>
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -220,11 +220,12 @@
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">Home</a>
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">Who We Are</a>
                 <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">What is Optima</a>
+                <a href="#contact-tab" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -241,7 +242,7 @@
                 <div class="md:w-1/2 animate-fade-in animate-delay-200">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight whitespace-nowrap">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Optima</span>
-                        <span class="typing-text text-secondary"></span>
+                        <span class="typing-text text-secondary text-2xl sm:text-3xl md:text-4xl"></span>
                     </h1>
                     <p class="text-lg md:text-xl mb-8 opacity-90 text-cyan-100">We build cutting-edge digital experiences with modern technologies and innovative approaches.</p>
 <p class='text-cyan-200 italic mb-8'>Not looking to grow? Then Optima isn't for you. We partner with those who aim higher.</p>
@@ -282,13 +283,14 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Who <span class="text-primary">We Are</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Who <span class="text-primary">We Are</span></h2>
                 <div class="w-20 h-1 bg-secondary mx-auto"></div>
             </div>
             
             <div class="md:flex items-center gap-12">
                 <div class="md:w-1/2 mb-10 md:mb-0 order-2 md:order-1">
-                    <img src="https://i.postimg.cc/1XyfXZmG/Optima-Logo.png" alt="Team working" class="rounded-xl shadow-xl w-full">
+                    <img src="https://i.postimg.cc/1XyfXZmG/Optima-Logo.png" alt="Team working" class="rounded-xl shadow-xl w-2/3 mx-auto">
+                    <img src="https://images.unsplash.com/photo-1529336953126-b0a3fd3abc97?auto=format&fit=crop&w=800&q=60" alt="Creative workspace" class="rounded-xl shadow-xl w-2/3 mx-auto mt-4">
                 </div>
                 <div class="md:w-1/2 order-1 md:order-2">
                     <h3 class="text-2xl md:text-3xl font-semibold text-white mb-6">Franco Maria & Abdulsalam Deiri</h3>
@@ -490,7 +492,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
             </div>
             <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-400 text-sm mb-4">© 2025 Optima Web Solutions. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4">© 2025 Optima Web Solutions</p>
                 <p class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">OPTIMA</p>
             </div>
         </div>
@@ -539,6 +541,7 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.classList.toggle('rotate-90');
         });
         
         // Smooth scrolling for anchor links
