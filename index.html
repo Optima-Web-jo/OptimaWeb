@@ -232,7 +232,15 @@
             position: absolute;
             color: #fcd34d;
             opacity: 0.8;
-            animation: float 6s ease-in-out infinite;
+            animation: star-move 6s ease-in-out infinite;
+        }
+
+        @keyframes star-move {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(90deg); }
+            50% { transform: translate(0, -40px) rotate(180deg); }
+            75% { transform: translate(-20px, -20px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
         }
     </style>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -539,6 +547,9 @@
         </div>
     </section>
 
+    <div class="py-16 bg-gray-900 flex justify-center">
+        <model-viewer src="https://modelviewer.dev/shared-assets/models/globe.glb" alt="Web world" camera-controls auto-rotate style="width:250px; height:250px;"></model-viewer>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
