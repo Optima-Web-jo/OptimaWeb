@@ -489,12 +489,15 @@
             <div class="code-line">function rateService(rating) { return rating >= 4 ? 'Excellent' : 'Good'; }</div>
             <div class="code-line">async function getFeedback() { return await fetchReviews(); }</div>
         </div>
-        <div class="absolute inset-0 pointer-events-none">
-            <i class="fas fa-star floating-star" style="top:10%; left:15%; animation-duration:7s;"></i>
-            <i class="fas fa-star floating-star" style="top:30%; left:80%; animation-duration:6s;"></i>
-            <i class="fas fa-star floating-star" style="top:70%; left:25%; animation-duration:8s;"></i>
-            <i class="fas fa-star floating-star" style="top:50%; left:60%; animation-duration:5s;"></i>
-            <i class="fas fa-star floating-star" style="top:85%; left:75%; animation-duration:9s;"></i>
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <i class="fas fa-star floating-star" style="top:5%; left:8%; animation-duration:7s;"></i>
+            <i class="fas fa-star floating-star" style="top:15%; left:85%; animation-duration:6s;"></i>
+            <i class="fas fa-star floating-star" style="top:25%; left:12%; animation-duration:8s;"></i>
+            <i class="fas fa-star floating-star" style="top:35%; left:90%; animation-duration:5s;"></i>
+            <i class="fas fa-star floating-star" style="top:55%; left:5%; animation-duration:9s;"></i>
+            <i class="fas fa-star floating-star" style="top:65%; left:88%; animation-duration:7s;"></i>
+            <i class="fas fa-star floating-star" style="top:78%; left:15%; animation-duration:6s;"></i>
+            <i class="fas fa-star floating-star" style="top:85%; left:80%; animation-duration:8s;"></i>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -547,9 +550,6 @@
         </div>
     </section>
 
-    <div class="py-16 bg-gray-900 flex justify-center">
-        <model-viewer src="https://modelviewer.dev/shared-assets/models/globe.glb" alt="Web world" camera-controls auto-rotate style="width:250px; height:250px;"></model-viewer>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
