@@ -269,10 +269,6 @@
         </div>
     </nav>
 
-    <button id="music-toggle" class="fixed top-4 right-4 bg-primary text-white rounded-full p-3 shadow-lg z-50">
-        <i class="fas fa-play"></i>
-    </button>
-    <audio id="background-music" src="https://cdn.pixabay.com/download/audio/2022/11/16/audio_b591d06433.mp3?filename=gentle-breeze-ambient-132783.mp3" loop></audio>
 
     <!-- Hero Section with Code Background -->
     <section id="home" class="pt-24 pb-20 relative overflow-hidden">
@@ -547,8 +543,24 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center transition opacity-0 invisible hover:bg-blue-600">
+    <button id="back-to-top" class="fixed bottom-8 right-20 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center transition opacity-0 invisible hover:bg-blue-600">
         <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AI Chat Widget -->
+    <div id="chat-box" class="hidden fixed bottom-24 right-8 w-72 bg-white text-gray-800 rounded-xl shadow-lg flex flex-col z-50">
+        <div class="flex items-center justify-between bg-primary text-white px-3 py-2 rounded-t-xl">
+            <span>Optima AI</span>
+            <button id="chat-close" class="text-white"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chat-messages" class="p-3 h-48 overflow-y-auto text-sm space-y-2"></div>
+        <form id="chat-form" class="flex border-t">
+            <input id="chat-input" type="text" placeholder="Ask about Optima" class="flex-grow px-2 py-1 focus:outline-none" />
+            <button type="submit" class="px-3 text-primary font-semibold">Send</button>
+        </form>
+    </div>
+    <button id="chat-toggle" class="fixed bottom-8 right-8 bg-secondary text-white rounded-full p-3 shadow-lg z-50">
+        <i class="fas fa-comments"></i>
     </button>
 
     <script>
@@ -664,18 +676,53 @@
             setTimeout(() => loader.classList.add('fade-out'), 500);
         });
 
-        // Music toggle
-        const music = document.getElementById('background-music');
-        const musicToggle = document.getElementById('music-toggle');
-        musicToggle.addEventListener('click', () => {
-            if (music.paused) {
-                music.play();
-                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                music.pause();
-                musicToggle.innerHTML = '<i class="fas fa-play"></i>';
-            }
+        // Simple AI chat
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatBox = document.getElementById('chat-box');
+        const chatClose = document.getElementById('chat-close');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        chatToggle.addEventListener('click', () => {
+            chatBox.classList.toggle('hidden');
         });
+
+        chatClose.addEventListener('click', () => {
+            chatBox.classList.add('hidden');
+        });
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+            appendMessage('You', text);
+            chatInput.value = '';
+            const reply = getAIResponse(text);
+            setTimeout(() => appendMessage('Optima AI', reply), 300);
+        });
+
+        function appendMessage(sender, text) {
+            const div = document.createElement('div');
+            div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getAIResponse(q) {
+            const question = q.toLowerCase();
+            if (question.includes('contact')) {
+                return 'You can reach us at +962776669699 or optimaweb.jo@gmail.com.';
+            }
+            if (question.includes('service') || question.includes('what do you do')) {
+                return 'We build custom websites that help innovative businesses grow online.';
+            }
+            if (question.includes('optima')) {
+                return 'Optima is a web design and development company based in Amman, Jordan.';
+            }
+            return 'Sorry, I can only answer questions about the Optima website and services.';
+        }
+
     </script>
 </body>
 </html>
